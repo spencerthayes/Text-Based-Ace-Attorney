@@ -1,164 +1,164 @@
 from time import sleep
 from nocasedict import NocaseDict
 from random import randint
-tgreen =  '\033[32m'
-tblue = '\u001b[38;5;75m'
-tyellow = '\u001b[38;5;220m'
-tred = '\u001b[31m'
-testimonyop = '\u001b[38;5;21mWitness Testimony'
-crossExaminationop = '\033[32mCross Examination'
-endc = '\033[m'
+tGreen =  '\033[32m'
+tBlue = '\u001b[38;5;75m'
+tYellow = '\u001b[38;5;220m'
+tRed = '\u001b[31m'
+testimonyOp = '\u001b[38;5;21mWitness Testimony'
+crossExaminationOp = '\033[32mCross Examination'
+endTextColour = '\033[m'
 evidence = NocaseDict({"Attorney's Badge": "No one would believe I was a defense attorney if I didn't carry this.", "Cindy's Autopsy Report": "Time of death: 7/31, 4PM-5PM. Cause of death: loss of blood due to blunt trauma."})
 profiles = NocaseDict({"Mia Fey": "Age: 27, Gender: Female, Chief Attorney at Fey & Co.. My boss, and a very good defense attorney.", "Larry Butz": "Age: 23, Gender: Male, The defendant in this case. A likeable guy who was my friend in grade school.", "Cindy Stone": "Age: 22, Gender: Female, The victim in this case. A model, she lived in an apartment by herself."})
-showprofiles = 0
-can_view_court_record = 0
-opening_sequence = ' '
+showProfiles = 0
+canViewCourtRecord = 0
+userChoice = ' '
 health = 5
 
-def dialogue( str ):
-	global opening_sequence
-	while opening_sequence != '':
-		opening_sequence = input(str)
-		print(endc + ' ')
+def dialogue(str):
+	global userChoice
+	while userChoice != '':
+		userChoice = input(str)
+		print(endTextColour + ' ')
 	
-		while opening_sequence.lower() == 'court record' and can_view_court_record == 1:
+		while userChoice.lower() == 'court record' and canViewCourtRecord == 1:
 			sleep(.1)
 			print(' ')
 			print(list(evidence.keys()))
 			print(' ')
 			sleep(.5)
-			court_record_input = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles or exit if you want to exit): ")
-			capitalized_message = " ".join([
+			courtRecordInput = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles or exit if you want to exit): ")
+			capitalizedMessage = " ".join([
 	   			word.capitalize()
-	  			 for word in court_record_input.split(" ")
+	  			 for word in courtRecordInput.split(" ")
 			])
 			print(' ')
 		
-			if court_record_input.lower() == 'profiles':
-				showprofiles = 1
+			if courtRecordInput.lower() == 'profiles':
+				showProfiles = 1
 			
-				while showprofiles == 1:
+				while showProfiles == 1:
 					sleep(.1)
 					print(' ')
 					print(list(profiles.keys()))
 					print(' ')
 					sleep(.5)
-					court_record_input = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence or exit if you want to exit): ")
+					courtRecordInput = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence or exit if you want to exit): ")
 				
-					capitalized_message = " ".join([
+					capitalizedMessage = " ".join([
 	   					word.capitalize()
-	  					 for word in court_record_input.split(" ")
+	  					 for word in courtRecordInput.split(" ")
 					])
 					print(' ')
 		
-					if capitalized_message in list(profiles.keys()):
-						print(capitalized_message + ': ' + profiles[court_record_input])
+					if capitalizedMessage in list(profiles.keys()):
+						print(capitalizedMessage + ': ' + profiles[courtRecordInput])
 						print(' ')
 			
-					elif court_record_input.lower() == 'exit':
-						print(endc + ' ')
-						opening_sequence = ' '
-						showprofiles = 0
+					elif courtRecordInput.lower() == 'exit':
+						print(endTextColour + ' ')
+						userChoice = ' '
+						showProfiles = 0
 						continue
 			
-					elif court_record_input.lower() == 'evidence':
-						showprofiles = 0
+					elif courtRecordInput.lower() == 'evidence':
+						showProfiles = 0
 						continue
 				
 					else:
 						print('Invalid Profile')
 				
-			elif capitalized_message in list(evidence.keys()):
-				print(capitalized_message + ': ' + evidence[court_record_input])
+			elif capitalizedMessage in list(evidence.keys()):
+				print(capitalizedMessage + ': ' + evidence[courtRecordInput])
 				print(' ')
 			
-			elif court_record_input.lower() == 'exit':
-				print(endc + ' ')
-				opening_sequence = ' '
+			elif courtRecordInput.lower() == 'exit':
+				print(endTextColour + ' ')
+				userChoice = ' '
 			
 			else:
 				print('Invalid Evidence')
-	opening_sequence = ' '
+	userChoice = ' '
 	
 def crossExaminationStatement(str):
-	global opening_sequence
-	opening_sequence = input(str)
-	print(endc + ' ')
+	global userChoice
+	userChoice = input(str)
+	print(endTextColour + ' ')
 	
-	while opening_sequence.lower() == 'present' or opening_sequence.lower() == 'court record':
+	while userChoice.lower() == 'present' or userChoice.lower() == 'court record':
 		sleep(.1)
 		print(' ')
 		print(list(evidence.keys()))
 		print(' ')
 		sleep(.5)
-		court_record_input = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles or exit if you want to exit): ")
-		capitalized_message = " ".join([
+		courtRecordInput = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles or exit if you want to exit): ")
+		capitalizedMessage = " ".join([
    			word.capitalize()
-  			 for word in court_record_input.split(" ")
+  			 for word in courtRecordInput.split(" ")
 		])
 		print(' ')
 		
-		if court_record_input.lower() == 'profiles':
-			showprofiles = 1
+		if courtRecordInput.lower() == 'profiles':
+			showProfiles = 1
 			
-			while showprofiles == 1:
+			while showProfiles == 1:
 				sleep(.1)
 				print(' ')
 				print(list(profiles.keys()))
 				print(' ')
 				sleep(.5)
-				court_record_input = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence or exit if you want to exit): ")
+				courtRecordInput = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence or exit if you want to exit): ")
 				
-				capitalized_message = " ".join([
+				capitalizedMessage = " ".join([
    					word.capitalize()
-  					 for word in court_record_input.split(" ")
+  					 for word in courtRecordInput.split(" ")
 				])
 				print(' ')
 		
-				if capitalized_message in list(profiles.keys()):
-					print(capitalized_message + ': ' + profiles[court_record_input])
+				if capitalizedMessage in list(profiles.keys()):
+					print(capitalizedMessage + ': ' + profiles[courtRecordInput])
 					print(' ')
 					presentQuestion = input("Would you like to present this evidence? (yes or no) ")
 					if presentQuestion.lower() == 'y' or presentQuestion.lower() == 'yes':
 						global presentedItem
-						presentedItem = capitalized_message
+						presentedItem = capitalizedMessage
 						print(' ')
-						opening_sequence = ' '
+						userChoice = ' '
 					else:
 						pass
 			
-				elif court_record_input.lower() == 'exit':
-					opening_sequence = ' '
-					showprofiles = 0
+				elif courtRecordInput.lower() == 'exit':
+					userChoice = ' '
+					showProfiles = 0
 					continue
 			
-				elif court_record_input.lower() == 'evidence':
-					showprofiles = 0
+				elif courtRecordInput.lower() == 'evidence':
+					showProfiles = 0
 					continue
 				
 				else:
 					print('Invalid Profile')
 				
-		elif capitalized_message in list(evidence.keys()):
-			print(capitalized_message + ': ' + evidence[court_record_input])
+		elif capitalizedMessage in list(evidence.keys()):
+			print(capitalizedMessage + ': ' + evidence[courtRecordInput])
 			print(' ')
 			sleep(.2)
 			presentQuestion = input("Would you like to present this evidence? (yes or no) ")
 			if presentQuestion.lower() == 'y' or presentQuestion.lower() == 'yes':
-				presentedItem = capitalized_message
+				presentedItem = capitalizedMessage
 				print(' ')
-				opening_sequence = ' '
+				userChoice = ' '
 			else:
 				pass
 			
-		elif court_record_input.lower() == 'exit':
-			opening_sequence = ' '
+		elif courtRecordInput.lower() == 'exit':
+			userChoice = ' '
 			
 		else:
 			print('Invalid Evidence')
 			
 	global crossExaminationPosition
-	if opening_sequence == '<<' or opening_sequence.lower() == 'back' and crossExaminationPosition > 1:
+	if userChoice == '<<' or userChoice.lower() == 'back' and crossExaminationPosition > 1:
 		crossExaminationPosition = crossExaminationPosition - 1
 	else:
 		crossExaminationPosition = crossExaminationPosition + 1
@@ -210,7 +210,7 @@ def wrongEvidence():
 		dialogue("Try to think before you make accusations, Mr. Wright! \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(Whoops! That didn't go so well.) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Whoops! That didn't go so well.) \u001b[38;5;220m >> ")
 		
 	elif wrongEvidenceRNG == 2:
 		print('Phoenix:')
@@ -230,7 +230,7 @@ def wrongEvidence():
 		dialogue("You don't sound very convinced, Mr. Wright. Objection overruled. \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(I don't think that won me any points with the judge…) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(I don't think that won me any points with the judge…) \u001b[38;5;220m >> ")
 		
 	elif wrongEvidenceRNG == 3:
 		print('Phoenix:')
@@ -250,7 +250,7 @@ def wrongEvidence():
 		dialogue("Mr. Wright, please think the facts over before making accusations. \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(I don't think that won me any points with the judge…) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(I don't think that won me any points with the judge…) \u001b[38;5;220m >> ")
 		
 	elif wrongEvidenceRNG == 4:
 		print('Phoenix:')
@@ -264,85 +264,85 @@ def wrongEvidence():
 		dialogue("Unfortunately, I will have to penalize you, Mr. Wright. \u001b[38;5;220m >> ")
 		
 		print('Phoenix')
-		dialogue(tblue + "(Ugh. I must be on the wrong track?) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Ugh. I must be on the wrong track?) \u001b[38;5;220m >> ")
 	penalty()
 	global presentedItem
 	presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 	
 def presentEvidence():
-	global opening_sequence
-	opening_sequence = 'present'
-	print(endc + ' ')
+	global userChoice
+	userChoice = 'present'
+	print(endTextColour + ' ')
 	
-	while opening_sequence.lower() == 'present' or opening_sequence.lower() == 'court record':
+	while userChoice.lower() == 'present' or userChoice.lower() == 'court record':
 		sleep(.1)
 		print(' ')
 		print(list(evidence.keys()))
 		print(' ')
 		sleep(.5)
-		court_record_input = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles): ")
-		capitalized_message = " ".join([
+		courtRecordInput = input("Type the name of the evidence you would like more info on here (type profiles if you want to see the list of profiles): ")
+		capitalizedMessage = " ".join([
    			word.capitalize()
-  			 for word in court_record_input.split(" ")
+  			 for word in courtRecordInput.split(" ")
 		])
 		print(' ')
 		
-		if court_record_input.lower() == 'profiles':
-			showprofiles = 1
+		if courtRecordInput.lower() == 'profiles':
+			showProfiles = 1
 			
-			while showprofiles == 1:
+			while showProfiles == 1:
 				sleep(.1)
 				print(' ')
 				print(list(profiles.keys()))
 				print(' ')
 				sleep(.5)
-				court_record_input = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence): ")
+				courtRecordInput = input("Type the name of the person you would like more info on here (type evidence if you want to see the list of evidence): ")
 				
-				capitalized_message = " ".join([
+				capitalizedMessage = " ".join([
    					word.capitalize()
-  					 for word in court_record_input.split(" ")
+  					 for word in courtRecordInput.split(" ")
 				])
 				print(' ')
 		
-				if capitalized_message in list(profiles.keys()):
-					print(capitalized_message + ': ' + profiles[court_record_input])
+				if capitalizedMessage in list(profiles.keys()):
+					print(capitalizedMessage + ': ' + profiles[courtRecordInput])
 					print(' ')
 					presentQuestion = input("Would you like to present this evidence? (yes or no) ")
 					if presentQuestion.lower() == 'y' or presentQuestion.lower() == 'yes':
 						global presentedItem
-						presentedItem = capitalized_message
+						presentedItem = capitalizedMessage
 						print(' ')
-						opening_sequence = ' '
+						userChoice = ' '
 					else:
 						pass
 			
-				elif court_record_input.lower() == 'evidence':
-					showprofiles = 0
+				elif courtRecordInput.lower() == 'evidence':
+					showProfiles = 0
 					continue
 				
 				else:
 					print('Invalid Profile')
 				
-		elif capitalized_message in list(evidence.keys()):
-			print(capitalized_message + ': ' + evidence[court_record_input])
+		elif capitalizedMessage in list(evidence.keys()):
+			print(capitalizedMessage + ': ' + evidence[courtRecordInput])
 			print(' ')
 			sleep(.2)
 			presentQuestion = input("Would you like to present this evidence? (yes or no) ")
 			if presentQuestion.lower() == 'y' or presentQuestion.lower() == 'yes':
-				presentedItem = capitalized_message
+				presentedItem = capitalizedMessage
 				print(' ')
-				opening_sequence = ' '
+				userChoice = ' '
 			else:
 				pass
 			
 		else:
 			print('Invalid Evidence')
 		
-dialogue(tgreen + "Date: August 3, 9:47 AM, District Court, Defendant Lobby No.2 \u001b[38;5;220m >> ")
-can_view_court_record = 1
+dialogue(tGreen + "Date: August 3, 9:47 AM, District Court, Defendant Lobby No.2 \u001b[38;5;220m >> ")
+canViewCourtRecord = 1
 
 print('Phoenix:')
-dialogue(tblue + "(Boy am I nervous!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Boy am I nervous!) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("Wright! \u001b[38;5;220m >> ")
@@ -377,8 +377,8 @@ dialogue("I want to help him out any way I can! \u001b[38;5;220m >> ")
 dialogue("I just… really want to help him, I owe him that much. \u001b[38;5;220m >> ")
 
 print('???:')
-dialogue(tgreen + "(It's over!) \u001b[38;5;220m >> ")
-dialogue(tgreen + "(My life, everything, it's all over!) \u001b[38;5;220m >> ")
+dialogue(tGreen + "(It's over!) \u001b[38;5;220m >> ")
+dialogue(tGreen + "(My life, everything, it's all over!) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("… Isn't that your client screaming over there? \u001b[38;5;220m >> ")
@@ -387,8 +387,8 @@ print('Phoenix:')
 dialogue("Yeah… that's him. \u001b[38;5;220m >> ")
 
 print('???:')
-dialogue(tgreen + "(Death! Despair! Ohhhh!) \u001b[38;5;220m >> ")
-dialogue(tgreen + "(I'm gonna do it, I'm gonna die!!!) \u001b[38;5;220m >> ")
+dialogue(tGreen + "(Death! Despair! Ohhhh!) \u001b[38;5;220m >> ")
+dialogue(tGreen + "(I'm gonna do it, I'm gonna die!!!) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("It sounds like he wants to die… \u001b[38;5;220m >> ")
@@ -417,8 +417,8 @@ dialogue("Who… who took her away from me, Nick? Who did this!? \u001b[38;5;220
 dialogue("Aww, Nick, ya gotta tell me! Who took my baby away!? \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Hmm… The person responsible for your girlfriend's death?) \u001b[38;5;220m >> ")
-dialogue(tblue + "(The newspapers say it was \u001b[31myou\u001b[38;5;75m…) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Hmm… The person responsible for your girlfriend's death?) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(The newspapers say it was \u001b[31myou\u001b[38;5;75m…) \u001b[38;5;220m >> ")
 
 print('.')
 sleep(1)
@@ -445,9 +445,9 @@ dialogue("Which is why I took the case… to clear his name. \u001b[38;5;220m >>
 dialogue("And that's just what I'm going to do! \u001b[38;5;220m >> ")
 sleep(2.5)
 
-can_view_court_record = 0
-dialogue(tgreen + "August 3, 10:00 AM, District Court, Courtroom No. 2 \u001b[38;5;220m >> ")
-can_view_court_record = 1
+canViewCourtRecord = 0
+dialogue(tGreen + "August 3, 10:00 AM, District Court, Courtroom No. 2 \u001b[38;5;220m >> ")
+canViewCourtRecord = 1
 
 print("*Gavel Slam*")
 print(' ')
@@ -482,13 +482,13 @@ dialogue("I think we should have a test to ascertain your readiness. \u001b[38;5
 
 print('Phoenix:')
 dialogue("Yes, Your Honor. \u001b[38;5;220m >> ")
-dialogue(tblue + "(Gulp… Hands shaking… Eyesight… fading…) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Gulp… Hands shaking… Eyesight… fading…) \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("This test will consist of a few simple questions. Answer them clearly and concisely. \u001b[38;5;220m >> ")
 
-question_answer = ' '
-while question_answer.lower() != 'larry butz':
+questionAnswer = ' '
+while questionAnswer.lower() != 'larry butz':
 	dialogue("Please state the name of \u001b[31mthe defendant\033[m in this case. \u001b[38;5;220m >> ")
 	print('1: Phoenix Wright')
 	sleep(.5)
@@ -499,10 +499,10 @@ while question_answer.lower() != 'larry butz':
 	print('3: Mia Fey')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'phoenix wright' or question_answer == '1':
+	if questionAnswer.lower() == 'phoenix wright' or questionAnswer == '1':
 		print('Phoenix:')
 		dialogue("Um… the defendant… is me, right? \u001b[38;5;220m >> ")
 		
@@ -521,7 +521,7 @@ while question_answer.lower() != 'larry butz':
 		print('Judge:')
 		dialogue("Sorry, I couldn't hear your answer. I'll ask once more: \u001b[38;5;220m >> ")
 		
-	elif question_answer.lower() == 'mia fey' or question_answer == '3':
+	elif questionAnswer.lower() == 'mia fey' or questionAnswer == '3':
 		print('Phoenix:')
 		dialogue("The, um, defendant? That's… er… Mia Fey? \u001b[38;5;220m >> ")
 		
@@ -538,13 +538,13 @@ while question_answer.lower() != 'larry butz':
 		dialogue("I mean, that's about as basic as you can get! \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(I've put my foot in it this time! I've got to relax!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(I've put my foot in it this time! I've got to relax!) \u001b[38;5;220m >> ")
 		
 		print('Judge:')
 		dialogue("Sorry, I couldn't hear your answer. I'll ask once more: \u001b[38;5;220m >> ")
 		
-	elif question_answer == '2':
-		question_answer = 'larry butz'
+	elif questionAnswer == '2':
+		questionAnswer = 'larry butz'
 		
 	else:
 		print('Judge:')
@@ -560,9 +560,9 @@ dialogue("Next question: \u001b[38;5;220m >> ")
 dialogue("This is a murder trial. Tell me, what's the \u001b[31mvictim's name\033[m? \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Whew, I know this one! Glad I read the case report cover to cover so many times.) \u001b[38;5;220m >> ")
-dialogue(tblue + "(It's… wait… Uh-oh!) \u001b[38;5;220m >> ")
-dialogue(tblue + "(No… no way! I forgot! I'm drawing a total blank here!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Whew, I know this one! Glad I read the case report cover to cover so many times.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(It's… wait… Uh-oh!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(No… no way! I forgot! I'm drawing a total blank here!) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("Phoenix! Are you absolutely SURE you're up to this? \u001b[38;5;220m >> ")
@@ -580,8 +580,8 @@ dialogue("Remember to check it often. Do it for me, please. I'm begging you. \u0
 
 print('Judge:')
 
-question_answer = ' '
-while question_answer.lower() != 'cindy stone':
+questionAnswer = ' '
+while questionAnswer.lower() != 'cindy stone':
 	dialogue("Mr. Wright. Who is the \u001b[31mvictim \033[min this case? \u001b[38;5;220m >> ")
 	print('1: Mia Fey')
 	sleep(.5)
@@ -592,10 +592,10 @@ while question_answer.lower() != 'cindy stone':
 	print('3: Cindy Stone')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'mia fey' or question_answer == '1':
+	if questionAnswer.lower() == 'mia fey' or questionAnswer == '1':
 		print('Phoenix:')
 		dialogue("Um… Mia Fey? \u001b[38;5;220m >> ")
 		
@@ -613,7 +613,7 @@ while question_answer.lower() != 'cindy stone':
 		print('Judge:')
 		dialogue("Let me ask that one again: \u001b[38;5;220m >> ")
 		
-	elif question_answer.lower() == 'cinder block' or question_answer == '2':
+	elif questionAnswer.lower() == 'cinder block' or questionAnswer == '2':
 		print('Phoenix:')
 		dialogue("Oh, um, wasn't it Ms. Block? \u001b[38;5;220m >> ")
 		dialogue("Ms. Cinder Block? \u001b[38;5;220m >> ")
@@ -628,8 +628,8 @@ while question_answer.lower() != 'cindy stone':
 		print('Judge:')
 		dialogue("I ask you again: \u001b[38;5;220m >> ")
 		
-	elif question_answer == '3':
-		question_answer = 'cindy stone'
+	elif questionAnswer == '3':
+		questionAnswer = 'cindy stone'
 		
 	else:
 		print('Judge:')
@@ -642,8 +642,8 @@ print('Judge:')
 dialogue("Correct. \u001b[38;5;220m >> ")
 dialogue("Now, tell me, what was the cause of death? \u001b[38;5;220m >> ")
 
-question_answer = ' '
-while question_answer.lower() != 'hit with a blunt object':
+questionAnswer = ' '
+while questionAnswer.lower() != 'hit with a blunt object':
 	dialogue("She died because she was…? \u001b[38;5;220m >> ")
 	print('1: Poisoned')
 	sleep(.5)
@@ -654,10 +654,10 @@ while question_answer.lower() != 'hit with a blunt object':
 	print('3: Strangled')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'poisoned' or question_answer == '1':
+	if questionAnswer.lower() == 'poisoned' or questionAnswer == '1':
 		print('Phoenix:')
 		dialogue("Oh, right! \u001b[38;5;220m >> ")
 		dialogue("Wasn't she, um, poisoned by er… poison? \u001b[38;5;220m >> ")
@@ -673,12 +673,12 @@ while question_answer.lower() != 'hit with a blunt object':
 		dialogue("The \u001b[31mCourt Record \033[mcommand… remember? \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(Geez. Give a guy a break!)")
+		dialogue(tBlue + "(Geez. Give a guy a break!)")
 		
 		print('Judge:')
 		dialogue("Let me ask again. \u001b[38;5;220m >> ")
 		
-	elif question_answer.lower() == 'strangled' or question_answer == '3':
+	elif questionAnswer.lower() == 'strangled' or questionAnswer == '3':
 		print('Phoenix:')
 		dialogue("Right… she was strangled, wasn't she? \u001b[38;5;220m >> ")
 		
@@ -689,8 +689,8 @@ while question_answer.lower() != 'hit with a blunt object':
 		dialogue("If you wish to hang yourself, Mr. Wright, you're welcome to, but not inside my courtroom. \u001b[38;5;220m >> ")
 		dialogue("I suppose there's nothing to do but give you another try: \u001b[38;5;220m >> ")
 		
-	elif question_answer == '2':
-		question_answer = 'hit with a blunt object'
+	elif questionAnswer == '2':
+		questionAnswer = 'hit with a blunt object'
 		
 	else:
 		print('Judge:')
@@ -707,7 +707,7 @@ dialogue("You seem much more relaxed, Mr. Wright. Good for you. \u001b[38;5;220m
 
 print('Phoenix:')
 dialogue("Thank you, Your Honor. \u001b[38;5;220m >> ")
-dialogue(tblue + "(Because I don't FEEL relaxed, that's for sure.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Because I don't FEEL relaxed, that's for sure.) \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Well, then… First, a question for the prosecution. \u001b[38;5;220m >> ")
@@ -728,7 +728,7 @@ print('Judge:')
 dialogue("I see… the court accepts it into evidence. \u001b[38;5;220m >> ")
 
 evidence['Statue/The Thinker'] = '''A statue in the shape of "The Thinker". It's rather heavy.'''
-dialogue(tblue + "Statue added to the Court Record. \u001b[38;5;220m >> ")
+dialogue(tBlue + "Statue added to the Court Record. \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("Wright… Be sure to pay attention to any evidence added during the trial. \u001b[38;5;220m >> ")
@@ -751,7 +751,7 @@ dialogue("You'll get your chance to respond to the prosecution later, so be read
 dialogue("Let's just hope he doesn't say anything… unfortunate. \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Uh oh, Larry gets excited easily… this could be bad.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Uh oh, Larry gets excited easily… this could be bad.) \u001b[38;5;220m >> ")
 
 print('.')
 sleep(1)
@@ -771,7 +771,7 @@ dialogue("We were great together! \u001b[38;5;220m >> ")
 dialogue("We were Romeo and Juliet, Cleopatra and Mark Anthony! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Um… didn't they all die?)")
+dialogue(tBlue + "(Um… didn't they all die?)")
 
 print('Butz:')
 dialogue("I wasn't dumped! \u001b[38;5;220m >> ")
@@ -792,7 +792,7 @@ dialogue("Your Honor, the victim's \u001b[38;5;75mpassport\033[m. \u001b[38;5;22
 dialogue("According to this, she was in Paris until the day before she died. \u001b[38;5;220m >> ")
 
 evidence['Passport'] = 'The victim apparently arrived home from Paris on 7/30, the day before the murder.'
-dialogue(tblue + "Passport added to the Court Record.")
+dialogue(tBlue + "Passport added to the Court Record.")
 
 print('Judge:')
 dialogue("Hmm… Indeed, she appears to have returned the day before the murder. \u001b[38;5;220m >> ")
@@ -823,33 +823,33 @@ print('Mia:')
 dialogue("Wright… I don't think you want him to answer that question. \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Yeah… Larry has a way of running his mouth in all the wrong directions.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Yeah… Larry has a way of running his mouth in all the wrong directions.) \u001b[38;5;220m >> ")
 
-question_answer = ' '
-current_question = 1
-while current_question != 0:
-	dialogue(tblue + "(Should I…?) \u001b[38;5;220m >> ")
+questionAnswer = ' '
+currentQuestion = 1
+while currentQuestion != 0:
+	dialogue(tBlue + "(Should I…?) \u001b[38;5;220m >> ")
 	print('1: Wait and see what happens')
 	sleep(.5)
 	print(' ')
 	print('2: Stop him from answering')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'wait and see what happens' or question_answer == '1' or question_answer.lower() == 'wait and see':
+	if questionAnswer.lower() == 'wait and see what happens' or questionAnswer == '1' or questionAnswer.lower() == 'wait and see':
 		print('Phoenix:')
-		dialogue(tblue + "(Might be better not to get involved in this one…) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Might be better not to get involved in this one…) \u001b[38;5;220m >> ")
 		
 		print('Payne:')
 		dialogue("Well, Mr. Butz? \u001b[38;5;220m >> ")
 		
 		print('Butz:')
 		dialogue("Dude, no way! That cheatin' she-dog! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
-	elif question_answer.lower() == 'stop him from answering' or question_answer == '2' or question_answer.lower() == 'stop him':
+	elif questionAnswer.lower() == 'stop him from answering' or questionAnswer == '2' or questionAnswer.lower() == 'stop him':
 		print('Phoenix:')
 		dialogue("My client had no idea the victim was seeing other men! \u001b[38;5;220m >> ")
 		dialogue("That question is irrelevant to this case! \u001b[38;5;220m >> ")
@@ -859,11 +859,11 @@ while current_question != 0:
 		
 		print('Butz:')
 		dialogue("""Dude! Nick! Whaddya mean, "irrelevant"!? That cheatin' she-dog! \u001b[38;5;220m >> """)
-		current_question = 0
+		currentQuestion = 0
 		
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 print('Butz:')
 dialogue("I'm gonna die. I'm just gonna drop dead! \u001b[38;5;220m >> ")
@@ -880,7 +880,7 @@ print('Judge:')
 dialogue("Yes, quite. \u001b[38;5;220m >> ")
 
 print("Phoenix:")
-dialogue(tblue + "(Oh boy. This is so not looking good.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Oh boy. This is so not looking good.) \u001b[38;5;220m >> ")
 
 print("Payne:")
 dialogue("Next question! \u001b[38;5;220m >> ")
@@ -896,22 +896,22 @@ print('Butz:')
 dialogue("Heh? Heh heh. Well, maybe I did, and maybe I didn't! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Uh oh. He went. What do I do?) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Uh oh. He went. What do I do?) \u001b[38;5;220m >> ")
 
-question_answer = ' '
-current_question = 1
-while current_question != 0:
-	dialogue(tblue + "(I know! I'll send him a signal…) \u001b[38;5;220m >> ")
+questionAnswer = ' '
+currentQuestion = 1
+while currentQuestion != 0:
+	dialogue(tBlue + "(I know! I'll send him a signal…) \u001b[38;5;220m >> ")
 	print('1: Have him answer honestly')
 	sleep(.5)
 	print(' ')
 	print('2: Stop him from answering')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'Have him answer honestly' or question_answer == '1' or question_answer.lower() == 'answer honestly':
+	if questionAnswer.lower() == 'Have him answer honestly' or questionAnswer == '1' or questionAnswer.lower() == 'answer honestly':
 		print('Phoenix:')
 		dialogue("*signals* \u001b[38;5;75m(TELL THE TRUTH) \u001b[38;5;220m >> ")
 		
@@ -931,9 +931,9 @@ while current_question != 0:
 		print('Payne:')
 		dialogue("The prosecution would like to call a \u001b[31mwitness\033[m who can prove Mr. Butz is lying. \u001b[38;5;220m >> ")
 	
-		current_question = 0
+		currentQuestion = 0
 		
-	elif question_answer.lower() == 'stop him from answering' or question_answer == '2' or question_answer.lower() == 'stop him':
+	elif questionAnswer.lower() == 'stop him from answering' or questionAnswer == '2' or questionAnswer.lower() == 'stop him':
 		print('Phoenix:')
 		dialogue("*signals* \u001b[38;5;75m(LIE LIKE A DOG) \u001b[38;5;220m >> ")
 		
@@ -945,15 +945,15 @@ while current_question != 0:
 		dialogue("Well then, we'll just have to remind you! \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(I got a bad feeling about this…) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(I got a bad feeling about this…) \u001b[38;5;220m >> ")
 		
 		print('Payne:')
 		dialogue("We have a u001b[31mwitness\033[m that can prove he DID go to the victim's apartment that day! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 print('Judge:')
 dialogue("Well, that simplifies matters. \u001b[38;5;220m >> ")
@@ -984,7 +984,7 @@ print('Payne:')
 dialogue("Yes, Your Honor. \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(This is bad…) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(This is bad…) \u001b[38;5;220m >> ")
 
 print('Payne:')
 dialogue("On the day of the murder, my witness was selling newspapers at the victim's building. \u001b[38;5;220m >> ")
@@ -1015,8 +1015,8 @@ sleep(1)
 print('.')
 sleep(.5)
 
-print(testimonyop)
-print(tred + "--Witness's Account--")
+print(testimonyOp)
+print(tRed + "--Witness's Account--")
 sleep(.75)
 
 print('Sahwit:')
@@ -1035,8 +1035,8 @@ print('Judge:')
 dialogue("Hmmm… \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Larry! Why didn't you tell the truth?) \u001b[38;5;220m >> ")
-dialogue(tblue + "(I can't defend you against a testimony like that!)")
+dialogue(tBlue + "(Larry! Why didn't you tell the truth?) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(I can't defend you against a testimony like that!)")
 
 print('Judge:')
 dialogue("Incidentally, why wasn't the phone in the victim's apartment working? \u001b[38;5;220m >> ")
@@ -1053,7 +1053,7 @@ dialogue("The phone that Mr. Sahwit used was one of those. \u001b[38;5;220m >> "
 dialogue("Your Honor… I have a record of the blackout, for your perusal. \u001b[38;5;220m >> ")
 
 evidence['Blackout Report'] = '''Electricity to Ms. Stone's building was out from noon to 6 PM on the day of the crime.'''
-dialogue(tblue + "Blackout Report added to the Court Record. \u001b[38;5;220m >> ")
+dialogue(tBlue + "Blackout Report added to the Court Record. \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Now, Mr. Wright… \u001b[38;5;220m >> ")
@@ -1105,15 +1105,15 @@ dialogue("Use the \u001b[31mCourt Record\033[m command and point out \u001b[31mc
 
 crossExaminationPosition = 1
 crossExamination = 1
-print(crossExaminationop)
-print(tred + "--Witness's Account--")
+print(crossExaminationOp)
+print(tRed + "--Witness's Account--")
 sleep(.75)
 
 print('Sahwit:')
 while crossExamination == 1:
 	if crossExaminationPosition == 1:
-		crossExaminationStatement(tgreen + "I was going door-to-door, selling subscriptions when I saw a man fleeing an apartment. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		crossExaminationStatement(tGreen + "I was going door-to-door, selling subscriptions when I saw a man fleeing an apartment. \u001b[38;5;220m >> ")
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1143,7 +1143,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 2:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I thought he must be in a hurry because he left the door half-open behind him. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1166,7 +1166,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 3:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m Thinking it strange, I looked inside the apartment. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1184,7 +1184,7 @@ while crossExamination == 1:
 			dialogue("Anyone would look inside! \u001b[38;5;220m >> ")
 			
 			print('Phoenix:')
-			dialogue(tblue + "(Hmm… why did Payne cut him off so quickly?) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(Hmm… why did Payne cut him off so quickly?) \u001b[38;5;220m >> ")
 			
 			print('Payne:')
 			dialogue("So you looked into the apartment. \u001b[38;5;220m >> ")
@@ -1198,7 +1198,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 4:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m Then I saw her lying there… A woman… not moving… dead! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1210,7 +1210,7 @@ while crossExamination == 1:
 			dialogue("But, she wasn't moving at all, and there was blood everywhere. \u001b[38;5;220m >> ")
 			
 			print('Phoenix:')
-			dialogue(tblue + "(I guess that would look fatal to anyone…) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(I guess that would look fatal to anyone…) \u001b[38;5;220m >> ")
 			dialogue("Very well, what happened next? \u001b[38;5;220m >> ")
 			
 			print('Sahwit:')
@@ -1221,7 +1221,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 5:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I quailed in fright and found myself unable to go inside. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1242,7 +1242,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 6:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I thought to call the police immediately! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1264,7 +1264,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 7:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m However, the phone in her apartment wasn't working. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1295,7 +1295,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 8:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I went to a nearby park and found a public phone. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1316,7 +1316,7 @@ while crossExamination == 1:
 			wrongEvidence()
 	if crossExaminationPosition == 9:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I remember the time exactly: It was 1:00 PM. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1327,7 +1327,7 @@ while crossExamination == 1:
 			dialogue("Yes. Absolutely. \u001b[38;5;220m >> ")
 			
 			print('Phoenix:')
-			dialogue(tblue + "(Hmm… He seems really confident.) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(Hmm… He seems really confident.) \u001b[38;5;220m >> ")
 			
 			print('Mia:')
 			dialogue("\u001b[31m1:00 PM\033[m? \u001b[38;5;220m >> ")
@@ -1349,7 +1349,7 @@ while crossExamination == 1:
 		
 	if crossExaminationPosition == 10:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m The man who ran was, without a doubt, the defendant sitting right over there. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1424,8 +1424,8 @@ dialogue("Wait! I remember now! \u001b[38;5;220m >> ")
 print('Judge:')
 dialogue("Would you care to give your testimony again? \u001b[38;5;220m >> ")
 
-print(testimonyop)
-print(tred + "--The Time of Discovery--")
+print(testimonyOp)
+print(tRed + "--The Time of Discovery--")
 sleep(.75)
 
 print('Sahwit:')
@@ -1449,15 +1449,15 @@ dialogue("I've got this one. \u001b[38;5;220m >> ")
 
 crossExaminationPosition = 1
 crossExamination = 1
-print(crossExaminationop)
-print(tred + "--The Time of Discovery--")
+print(crossExaminationOp)
+print(tRed + "--The Time of Discovery--")
 sleep(.75)
 
 print('Sahwit:')
 while crossExamination == 1:
 	if crossExaminationPosition == 1:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m You see, when I found the body, I heard the time. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1503,7 +1503,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 2:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m There was a voice saying the time… It was probably coming from the television. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1540,7 +1540,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 3:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m Oh, but it was three hours off, wasn't it? \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1566,7 +1566,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 4:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m I guess the victim must have been watching a video of a taped program! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1601,7 +1601,7 @@ while crossExamination == 1:
 			
 	if crossExaminationPosition == 5:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m That's why I thought it was 1:00 PM! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1636,14 +1636,14 @@ while crossExamination == 1:
 	
 	if crossExaminationPosition == 6:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m Terribly sorry about the misunderstanding… \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
 			sleep(.5)
 			dialogue("Well, you just watch it! \u001b[38;5;220m >> ")
-			dialogue(tblue + "(Hmm…) \u001b[38;5;220m >> ")
-			dialogue(tblue + "(Not much point pressing him on that one, was there?) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(Hmm…) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(Not much point pressing him on that one, was there?) \u001b[38;5;220m >> ")
 		
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1696,8 +1696,8 @@ print('Judge:')
 dialogue("Very well, Mr. Sahwit. \u001b[38;5;220m >> ")
 dialogue("Let's hear your testimony once more please. \u001b[38;5;220m >> ")
 
-print(testimonyop)
-print(tred + "--Hearing the Time--")
+print(testimonyOp)
+print(tRed + "--Hearing the Time--")
 sleep(.75)
 
 print('Sahwit:')
@@ -1716,15 +1716,15 @@ dialogue("Gladly. \u001b[38;5;220m >> ")
 
 crossExaminationPosition = 1
 crossExamination = 1
-print(crossExaminationop)
-print(tred + "--Hearing the Time--")
+print(crossExaminationOp)
+print(tRed + "--Hearing the Time--")
 sleep(.75)
 
 print('Sahwit:')
 while crossExamination == 1:
 	if crossExaminationPosition == 1:
-		crossExaminationStatement("""\u001b[38;5;220m<< \033[32m Actually, I didn't "hear" the time… I "saw" it! \u001b[38;5;220m >> """)
-		if opening_sequence.lower() == 'press':
+		crossExaminationStatement(tGreen + """Actually, I didn't "hear" the time… I "saw" it! \u001b[38;5;220m >> """)
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1746,7 +1746,7 @@ while crossExamination == 1:
 		
 	if crossExaminationPosition == 2:	
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m There was a table clock in the apartment, wasn't there! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1772,7 +1772,7 @@ while crossExamination == 1:
 		
 	if crossExaminationPosition == 3:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m Yeah, the murder weapon! The killer used it to hit the victim! \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1785,7 +1785,7 @@ while crossExamination == 1:
 			dialogue("Did you doze off in the middle of my testimony or something? \u001b[38;5;220m >> ")
 			
 			print('Phoenix:')
-			dialogue(tblue + "(Something's fishy here…) \u001b[38;5;220m >> ")
+			dialogue(tBlue + "(Something's fishy here…) \u001b[38;5;220m >> ")
 			
 			print('Sahwit:')
 		if presentedItem.lower() == 'statue/the thinker':
@@ -1802,7 +1802,7 @@ while crossExamination == 1:
 		
 	if crossExaminationPosition == 4:
 		crossExaminationStatement("\u001b[38;5;220m<< \033[32m That must have been what I saw. \u001b[38;5;220m >> ")
-		if opening_sequence.lower() == 'press':
+		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
 			print(' ')
@@ -1876,9 +1876,9 @@ dialogue("Well, Mr. Wright? \u001b[38;5;220m >> ")
 dialogue("It appears that the witness's testimony was correct. \u001b[38;5;220m >> ")
 dialogue("This is a clock. \u001b[38;5;220m >> ")
 
-question_answer = ' '
-current_question = 1
-while current_question != 0:
+questionAnswer = ' '
+currentQuestion = 1
+while currentQuestion != 0:
 	dialogue("Do you have any problems with his testimony now? \u001b[38;5;220m >> ")
 	print('1: Yes')
 	sleep(.5)
@@ -1886,15 +1886,15 @@ while current_question != 0:
 	print('2: No')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'yes' or question_answer == '1' or question_answer.lower() == '1: yes':
+	if questionAnswer.lower() == 'yes' or questionAnswer == '1' or questionAnswer.lower() == '1: yes':
 		print('Phoenix:')
 		dialogue("Your Honor, there is a gaping hole in the witness's testimony! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
-	elif question_answer.lower() == 'no' or question_answer == '2' or question_answer.lower() == '2: no':
+	elif questionAnswer.lower() == 'no' or questionAnswer == '2' or questionAnswer.lower() == '2: no':
 		print('Phoenix:')
 		dialogue("I guess not. \u001b[38;5;220m >> ")
 		dialogue("There was a clock on the scene, so, no problem. \u001b[38;5;220m >> ")
@@ -1917,11 +1917,11 @@ while current_question != 0:
 		print('Phoenix:')
 		dialogue("Yes… \u001b[38;5;220m >> ")
 		dialogue("Yes I do! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 		print('Judge:')
 		
@@ -1934,9 +1934,9 @@ print('Judge:')
 dialogue("Hmm… indeed! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-question_answer = ' '
-current_question = 1
-while current_question != 0:
+questionAnswer = ' '
+currentQuestion = 1
+while currentQuestion != 0:
 	dialogue("The witness knew it was a clock, because he… \u001b[38;5;220m >> ")
 	print('1: Went into the apartment')
 	sleep(.5)
@@ -1944,14 +1944,14 @@ while current_question != 0:
 	print('2: Knew the victim')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'went into the apartment' or question_answer == '1' or question_answer.lower() == '1: went into the apartment':
+	if questionAnswer.lower() == 'went into the apartment' or questionAnswer == '1' or questionAnswer.lower() == '1: went into the apartment':
 		print('Phoenix')
-		current_question = 0
+		currentQuestion = 0
 		
-	elif question_answer.lower() == 'knew the victim' or question_answer == '2' or question_answer.lower() == '2: knew the victim':
+	elif questionAnswer.lower() == 'knew the victim' or questionAnswer == '2' or questionAnswer.lower() == '2: knew the victim':
 		print('Phoenix:')
 		dialogue("Tell me, isn't it true that you knew the victim? \u001b[38;5;220m >> ")
 		dialogue("""In fact, you were one of her "sugar daddies"! \u001b[38;5;220m >> """)
@@ -1980,7 +1980,7 @@ while current_question != 0:
 		
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 # Phoenix:
 dialogue("You're lying! \u001b[38;5;220m >> ")
@@ -2073,11 +2073,11 @@ dialogue("You claim the sound the witness heard came from the clock… \u001b[38
 dialogue("Do you have any evidence? \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(The whole case is riding on this!) \u001b[38;5;220m >> ")
-dialogue(tblue + "(I'd better think it through carefully!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(The whole case is riding on this!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(I'd better think it through carefully!) \u001b[38;5;220m >> ")
 dialogue("Yes, Your Honor. \u001b[38;5;220m >> ")
 
-while current_question != 0:
+while currentQuestion != 0:
 	dialogue("The sound Mr. Sahwit heard was definitely this clock. A fact which is clear if you simply…  \u001b[38;5;220m >> ")
 	print("1: Examine the clock's batteries")
 	sleep(.5)
@@ -2088,10 +2088,10 @@ while current_question != 0:
 	print('3: Try sounding the clock')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == "examine the clock's batteries" or question_answer == '1' or question_answer.lower() == "1: examine the clock's batteries":
+	if questionAnswer.lower() == "examine the clock's batteries" or questionAnswer == '1' or questionAnswer.lower() == "1: examine the clock's batteries":
 		print('Phoenix:')
 		dialogue("All you have to do is examine the batteries! \u001b[38;5;220m >> ")
         
@@ -2122,7 +2122,7 @@ while current_question != 0:
 		dialogue("Y-yes, Your Honor. \u001b[38;5;220m >> ")
 		dialogue("As I was saying… \u001b[38;5;220m >> ")
         
-	elif question_answer.lower() == 'ask the neighbors' or question_answer == '2' or question_answer.lower() == '2: ask the neighbors':
+	elif questionAnswer.lower() == 'ask the neighbors' or questionAnswer == '2' or questionAnswer.lower() == '2: ask the neighbors':
 		print('Phoenix:')
 		dialogue("All you have to do is talk to the victim's neighbors! \u001b[38;5;220m >> ")
 		
@@ -2151,13 +2151,13 @@ while current_question != 0:
 		dialogue("I-I'm sorry, Your Honor! \u001b[38;5;220m >> ")
 		dialogue("Let me think about it again! \u001b[38;5;220m >> ")
 	
-	elif question_answer.lower() == 'try sounding the clock' or question_answer == '3' or question_answer.lower() == '3: try sounding the clock':
+	elif questionAnswer.lower() == 'try sounding the clock' or questionAnswer == '3' or questionAnswer.lower() == '3: try sounding the clock':
 		print('Phoenix:')
-		current_question = 0
+		currentQuestion = 0
 	
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 #Phoenix:
 dialogue("Let's sound the clock now, here in this court. \u001b[38;5;220m >> ")
@@ -2165,9 +2165,9 @@ dialogue("Your Honor, may I have the clock? \u001b[38;5;220m >> ")
 dialogue("I ask the court to listen very carefully… \u001b[38;5;220m >> ")
 
 print('Alarm clock:')
-print(tred + "…*beep*…")
+print(tRed + "…*beep*…")
 sleep(.25)
-dialogue(tgreen + "[I think it's 8:25.] \u001b[38;5;220m >> ")
+dialogue(tGreen + "[I think it's 8:25.] \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("That certainly is a strange way to announce the time. \u001b[38;5;220m >> ")
@@ -2199,7 +2199,7 @@ dialogue("Hah hah! \u001b[38;5;220m >> ")
 dialogue("You forgot one thing! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Uh oh… what's he talking about…?) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Uh oh… what's he talking about…?) \u001b[38;5;220m >> ")
 
 print('Sahwit:')
 dialogue("While it may seem like that clock IS running three hours slow… \u001b[38;5;220m >> ")
@@ -2209,9 +2209,9 @@ dialogue("If you can't prove that, you don't have a case! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
 dialogue("…! \u001b[38;5;220m >> ")
-dialogue(tblue + "(He's right!) \u001b[38;5;220m >> ")
-dialogue(tblue + "(How am I going to prove that!?) \u001b[38;5;220m >> ")
-dialogue(tblue + "(Dammit! I was so close!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(He's right!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(How am I going to prove that!?) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Dammit! I was so close!) \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Mr. Wright? \u001b[38;5;220m >> ")
@@ -2233,9 +2233,9 @@ dialogue("A criminal! \u001b[38;5;220m >> ")
 dialogue("You lawyers are all slime! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Grr! I almost had him!) \u001b[38;5;220m >> ")
-dialogue(tblue + "(Sorry, Larry… I failed you.) \u001b[38;5;220m >> ")
-dialogue(tblue + "(There's nothing I can do about it now…) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Grr! I almost had him!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Sorry, Larry… I failed you.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(There's nothing I can do about it now…) \u001b[38;5;220m >> ")
 
 print('.')
 sleep(1)
@@ -2269,8 +2269,8 @@ dialogue("Think through it! \u001b[38;5;220m >> ")
 dialogue("""Ask yourself, \u001b[31m"Why was the clock three hours slow"\033[m? \u001b[38;5;220m >> """)
 dialogue("Figure out the reason, and you'll have your proof! \u001b[38;5;220m >> ")
 dialogue("Right, Wright? \u001b[38;5;220m >> ")
-current_question = 1
-while current_question != 0:
+currentQuestion = 1
+while currentQuestion != 0:
 	dialogue("Can you think of a reason as to why the clock would be three hours slow? \u001b[38;5;220m >> ")
 	print('1: Yes')
 	sleep(.5)
@@ -2278,10 +2278,10 @@ while current_question != 0:
 	print('2: No')
 	sleep(.5)
 	print(' ')
-	question_answer = input('Type your answer here: ')
+	questionAnswer = input('Type your answer here: ')
 	print(' ')
 	
-	if question_answer.lower() == 'yes' or question_answer == '1' or question_answer.lower() == '1: yes' or question_answer.lower() == 'y':
+	if questionAnswer.lower() == 'yes' or questionAnswer == '1' or questionAnswer.lower() == '1: yes' or questionAnswer.lower() == 'y':
 		print('Phoenix:')
 		dialogue("… Wait! \u001b[38;5;220m >> ")
 		dialogue("Maybe I can prove it! \u001b[38;5;220m >> ")
@@ -2303,9 +2303,9 @@ while current_question != 0:
 		dialogue("Hah! \u001b[38;5;220m >> ")
 		dialogue("Tough words! \u001b[38;5;220m >> ")
 		dialogue("Let's see you pull this one off! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
-	elif question_answer.lower() == 'no' or question_answer == '2' or question_answer.lower() == '2: no' or question_answer.lower() == 'n':
+	elif questionAnswer.lower() == 'no' or questionAnswer == '2' or questionAnswer.lower() == '2: no' or questionAnswer.lower() == 'n':
 		print('Phoenix:')
 		dialogue("H-how am I supposed to know that!? \u001b[38;5;220m >> ")
 		
@@ -2326,18 +2326,18 @@ while current_question != 0:
 		dialogue("Do you have evidence to prove this? \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(This is it… all or nothing!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(This is it… all or nothing!) \u001b[38;5;220m >> ")
 		dialogue("Yes, Your Honor. \u001b[38;5;220m >> ")
 		dialogue("I believe I have the evidence that can prove my claim! \u001b[38;5;220m >> ")
 		
 		print('Sahwit:')
 		dialogue("Hah hah! \u001b[38;5;220m >> ")
 		dialogue("I'd like to see THAT! \u001b[38;5;220m >> ")
-		current_question = 0
+		currentQuestion = 0
 		
 	else:
 		print('Phoenix:')
-		dialogue(tblue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Wait what was I thinking about? Oh right!) \u001b[38;5;220m >> ")
 		
 		print('Mia:')
 		
@@ -2365,7 +2365,7 @@ while crossExamination == 1
 		dialogue("I can't see what that evidence has to do with the clock. \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(D'oh! That wasn't it!) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(D'oh! That wasn't it!) \u001b[38;5;220m >> ")
 		dialogue("One more chance… \u001b[38;5;220m >> ")
 		dialogue("Give me just one more chance! \u001b[38;5;220m >> ")
 		
@@ -2451,12 +2451,12 @@ dialogue("While he was searching her place, the victim returned! \u001b[38;5;220
 dialogue("Flustered, Mr. Sahwit grabbed the nearest blunt object he could find… \u001b[38;5;220m >> ")
 sleep(2.5)
 
-can_view_court_record = 0
-dialogue(tgreen + "Date: August 3, 2:32 PM, District Court, Defendant Lobby No.2 \u001b[38;5;220m >> ")
-can_view_court_record = 1
+canViewCourtRecord = 0
+dialogue(tGreen + "Date: August 3, 2:32 PM, District Court, Defendant Lobby No.2 \u001b[38;5;220m >> ")
+canViewCourtRecord = 1
 
 print('Phoenix:')
-dialogue(tblue + "(Whew… I still can't believe we won!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Whew… I still can't believe we won!) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("Wright! \u001b[38;5;220m >> ")
@@ -2501,8 +2501,8 @@ dialogue("But… but my Cindy-windy's gone, man! \u001b[38;5;220m >> ")
 dialogue("Gone forever! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tblue + "(Larry, she was a…) \u001b[38;5;220m >> ")
-dialogue(tblue + "(Nah… Never mind.) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Larry, she was a…) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Nah… Never mind.) \u001b[38;5;220m >> ")
 
 print('Mia:')
 dialogue("Congratulations, Harry! \u001b[38;5;220m >> ")
@@ -2581,7 +2581,7 @@ dialogue("H-huh? \u001b[38;5;220m >> ")
 dialogue("Oh, yeah, right! \u001b[38;5;220m >> ")
 crossExamination = 1
 while crossExamination == 1
-	dialogue(tblue + "(What the heck is she talking about?) \u001b[38;5;220m >> ")
+	dialogue(tBlue + "(What the heck is she talking about?) \u001b[38;5;220m >> ")
 	presentEvidence()
 	if presentedItem.lower() == 'statue/the thinker':
 		print('Phoenix:')
@@ -2620,7 +2620,7 @@ while crossExamination == 1
 		dialogue("Thanks. \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(Hope that made him feel a little better…) \u001b[38;5;220m >> ")		
+		dialogue(tBlue + "(Hope that made him feel a little better…) \u001b[38;5;220m >> ")		
 		crossExamination = 0
 		continue
 	else:
@@ -2640,7 +2640,7 @@ while crossExamination == 1
 		dialogue("Thanks a ton, eh? \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tblue + "(Guess that wasn't the right thing to show him…) \u001b[38;5;220m >> ")
+		dialogue(tBlue + "(Guess that wasn't the right thing to show him…) \u001b[38;5;220m >> ")
 		crossExamination = 0
 		continue
 
