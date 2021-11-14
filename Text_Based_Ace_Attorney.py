@@ -1335,7 +1335,7 @@ while crossExamination == 1:
 			dialogue("Present some \u001b[31mevidence\033[m to \u001b[31mcontradict\033[m him! \u001b[38;5;220m >> ")
 			
 			print('Sahwit:')
-		elif presentedItem.lower() == "cindy's autopsy report"
+		elif presentedItem.lower() == "cindy's autopsy report":
 			print('Phoenix:')
 			print("""Objection!""")
 			print(' ')
@@ -2343,7 +2343,7 @@ while currentQuestion != 0:
 		
 print('Judge:')
 crossExamination = 1
-while crossExamination == 1
+while crossExamination == 1:
 	dialogue("Let's see this evidence that proves why the clock was running slow! \u001b[38;5;220m >> ")
 	presentEvidence()
 	if presentedItem.lower() == 'passport':
@@ -2580,7 +2580,7 @@ print('Phoenix:')
 dialogue("H-huh? \u001b[38;5;220m >> ")
 dialogue("Oh, yeah, right! \u001b[38;5;220m >> ")
 crossExamination = 1
-while crossExamination == 1
+while crossExamination == 1:
 	dialogue(tBlue + "(What the heck is she talking about?) \u001b[38;5;220m >> ")
 	presentEvidence()
 	if presentedItem.lower() == 'statue/the thinker':
