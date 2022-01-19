@@ -14,6 +14,7 @@ showProfiles = 0
 canViewCourtRecord = 0
 userChoice = ' '
 health = 5
+presentedItem = ''
 
 def dialogue(str):
 	global userChoice
