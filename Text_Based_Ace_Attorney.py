@@ -673,7 +673,7 @@ while questionAnswer.lower() != 'hit with a blunt object':
 		dialogue("The \u001b[31mCourt Record \033[mcommand… remember? \u001b[38;5;220m >> ")
 		
 		print('Phoenix:')
-		dialogue(tBlue + "(Geez. Give a guy a break!)")
+		dialogue(tBlue + "(Geez. Give a guy a break!) \u001b[38;5;220m >> ")
 		
 		print('Judge:')
 		dialogue("Let me ask again. \u001b[38;5;220m >> ")
@@ -792,7 +792,7 @@ dialogue("Your Honor, the victim's \u001b[38;5;75mpassport\033[m. \u001b[38;5;22
 dialogue("According to this, she was in Paris until the day before she died. \u001b[38;5;220m >> ")
 
 evidence['Passport'] = 'The victim apparently arrived home from Paris on 7/30, the day before the murder.'
-dialogue(tBlue + "Passport added to the Court Record.")
+dialogue(tBlue + "Passport added to the Court Record. \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Hmm… Indeed, she appears to have returned the day before the murder. \u001b[38;5;220m >> ")
@@ -957,7 +957,7 @@ while currentQuestion != 0:
 		
 print('Judge:')
 dialogue("Well, that simplifies matters. \u001b[38;5;220m >> ")
-dialogue("Who is your witness?")
+dialogue("Who is your witness? \u001b[38;5;220m >> ")
 
 print('Payne:')
 dialogue("The man who found the victim's body. \u001b[38;5;220m >> ")
@@ -972,7 +972,7 @@ sleep(.5)
 print('*Gavel Slam*')
 print(' ')
 sleep(.225)
-print('*Gavel Slam')
+print('*Gavel Slam*')
 print(' ')
 sleep(.255)
 
@@ -1036,7 +1036,7 @@ dialogue("Hmmm… \u001b[38;5;220m >> ")
 
 print('Phoenix:')
 dialogue(tBlue + "(Larry! Why didn't you tell the truth?) \u001b[38;5;220m >> ")
-dialogue(tBlue + "(I can't defend you against a testimony like that!)")
+dialogue(tBlue + "(I can't defend you against a testimony like that!) \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Incidentally, why wasn't the phone in the victim's apartment working? \u001b[38;5;220m >> ")
