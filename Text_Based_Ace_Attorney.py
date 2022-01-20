@@ -1017,7 +1017,7 @@ print('.')
 sleep(.5)
 
 print(testimonyOp)
-print(tRed + "--Witness's Account--")
+print(tRed + "--Witness's Account--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
@@ -1107,7 +1107,7 @@ dialogue("Use the \u001b[31mCourt Record\033[m command and point out \u001b[31mc
 crossExaminationPosition = 1
 crossExamination = 1
 print(crossExaminationOp)
-print(tRed + "--Witness's Account--")
+print(tRed + "--Witness's Account--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
@@ -1426,7 +1426,7 @@ print('Judge:')
 dialogue("Would you care to give your testimony again? \u001b[38;5;220m >> ")
 
 print(testimonyOp)
-print(tRed + "--The Time of Discovery--")
+print(tRed + "--The Time of Discovery--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
@@ -1451,7 +1451,7 @@ dialogue("I've got this one. \u001b[38;5;220m >> ")
 crossExaminationPosition = 1
 crossExamination = 1
 print(crossExaminationOp)
-print(tRed + "--The Time of Discovery--")
+print(tRed + "--The Time of Discovery--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
@@ -1698,7 +1698,7 @@ dialogue("Very well, Mr. Sahwit. \u001b[38;5;220m >> ")
 dialogue("Let's hear your testimony once more please. \u001b[38;5;220m >> ")
 
 print(testimonyOp)
-print(tRed + "--Hearing the Time--")
+print(tRed + "--Hearing the Time--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
@@ -1718,7 +1718,7 @@ dialogue("Gladly. \u001b[38;5;220m >> ")
 crossExaminationPosition = 1
 crossExamination = 1
 print(crossExaminationOp)
-print(tRed + "--Hearing the Time--")
+print(tRed + "--Hearing the Time--" + endTextColour)
 sleep(.75)
 
 print('Sahwit:')
