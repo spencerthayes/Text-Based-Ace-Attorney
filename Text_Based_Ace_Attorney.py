@@ -772,7 +772,7 @@ dialogue("We were great together! \u001b[38;5;220m >> ")
 dialogue("We were Romeo and Juliet, Cleopatra and Mark Anthony! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue(tBlue + "(Um… didn't they all die?)")
+dialogue(tBlue + "(Um… didn't they all die?) \u001b[38;5;220m >> ")
 
 print('Butz:')
 dialogue("I wasn't dumped! \u001b[38;5;220m >> ")
@@ -1051,7 +1051,7 @@ dialogue("Aren't phones supposed to work during a blackout? \u001b[38;5;220m >> 
 print('Payne:')
 dialogue("Yes, Your Honor… However, some cordless phones do not function normally. \u001b[38;5;220m >> ")
 dialogue("The phone that Mr. Sahwit used was one of those. \u001b[38;5;220m >> ")
-dialogue("Your Honor… I have a record of the blackout, for your perusal. \u001b[38;5;220m >> ")
+dialogue("Your Honor… I have a record of the blackout, for your perusual. \u001b[38;5;220m >> ")
 
 evidence['Blackout Report'] = '''Electricity to Ms. Stone's building was out from noon to 6 PM on the day of the crime.'''
 dialogue(tBlue + "Blackout Report added to the Court Record. \u001b[38;5;220m >> ")
