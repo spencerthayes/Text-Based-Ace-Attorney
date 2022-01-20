@@ -14,7 +14,7 @@ showProfiles = 0
 canViewCourtRecord = 0
 userChoice = ' '
 health = 5
-presentedItem = ''
+presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 
 def dialogue(str):
 	global userChoice
@@ -1342,6 +1342,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1496,6 +1497,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1533,6 +1535,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1594,6 +1597,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1629,6 +1633,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1765,6 +1770,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1795,6 +1801,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -1824,6 +1831,7 @@ while crossExamination == 1:
 			print(' ')
 			sleep(.5)
 			crossExamination = 0
+			presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 			continue
 		elif presentedItem not in list(evidence.keys()) and presentedItem not in list(profiles.keys()):
 			pass
@@ -2353,6 +2361,7 @@ while crossExamination == 1:
 		print(' ')
 		sleep(.5)
 		crossExamination = 0
+		presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 		continue
 	else:
 		print('Phoenix:')
@@ -2623,6 +2632,7 @@ while crossExamination == 1:
 		print('Phoenix:')
 		dialogue(tBlue + "(Hope that made him feel a little better…) \u001b[38;5;220m >> ")		
 		crossExamination = 0
+		presentedItem = '''Put something in here that won't appear in your evidence or profile list'''
 		continue
 	else:
 		print('Phoenix:')
