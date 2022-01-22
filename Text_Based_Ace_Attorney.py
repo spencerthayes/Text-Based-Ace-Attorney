@@ -637,7 +637,7 @@ while questionAnswer.lower() != 'cindy stone':
 		dialogue("Sorry, I couldn't hear your answer. I'll ask once more: \u001b[38;5;220m >> ")
 		
 print('Phoenix:')
-dialogue("Um… the victim's name is \u001b[38;5;75mCindy Stone\033[m.")
+dialogue("Um… the victim's name is \u001b[38;5;75mCindy Stone\033[m. \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("Correct. \u001b[38;5;220m >> ")
