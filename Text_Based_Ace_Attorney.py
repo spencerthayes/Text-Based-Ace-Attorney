@@ -728,7 +728,7 @@ dialogue("It was found lying on the floor, next to the victim. \u001b[38;5;220m 
 print('Judge:')
 dialogue("I see… the court accepts it into evidence. \u001b[38;5;220m >> ")
 
-evidence['Statue/The Thinker'] = '''A statue in the shape of "The Thinker". It's rather heavy.'''
+evidence['Statue'] = '''A statue in the shape of "The Thinker". It's rather heavy.'''
 dialogue(tBlue + "Statue added to the Court Record. \u001b[38;5;220m >> ")
 
 print('Mia:')
