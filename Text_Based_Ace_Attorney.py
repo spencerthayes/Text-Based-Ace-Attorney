@@ -920,6 +920,12 @@ while currentQuestion != 0:
 		dialogue("Er… Yeah! Yeah! \u001b[38;5;220m >> ")
 		dialogue("I was there! I went! \u001b[38;5;220m >> ")
 		
+		print('Judge:')
+		dialogue("Order! Well, Mr. Butz? \u001b[38;5;220m >> ")
+		
+		print('Butz:')
+		dialogue("Dude, chill! She wasn't home, man... So, like, I didn't see her. \u001b[38;5;220m >> ")
+		
 		print('Payne:')
 		print("""Objection!""")
 		print(' ')
