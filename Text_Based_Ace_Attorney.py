@@ -1464,7 +1464,7 @@ sleep(.75)
 print('Sahwit:')
 while crossExamination == 1:
 	if crossExaminationPosition == 1:
-		crossExaminationStatement("\u001b[38;5;220m<< \033[32m You see, when I found the body, I heard the time. \u001b[38;5;220m >> ")
+		crossExaminationStatement("You see, when I found the body, I heard the time. \u001b[38;5;220m >> ")
 		if userChoice.lower() == 'press':
 			print('Phoenix:')
 			print("""Hold it!""")
