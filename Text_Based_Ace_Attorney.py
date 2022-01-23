@@ -1401,7 +1401,7 @@ dialogue("How do you explain this three-hour gap? \u001b[38;5;220m >> ")
 
 print('Sahwit:')
 dialogue("!!! \u001b[38;5;220m >> ")
-dialogue(" Oh, that! Oh, er…")
+dialogue(" Oh, that! Oh, er… \u001b[38;5;220m >> ")
 
 print('Payne:')
 print("""Objection!""")
