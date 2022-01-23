@@ -1770,7 +1770,7 @@ while crossExamination == 1:
 			dialogue("This is the first I've heard of it! \u001b[38;5;220m >> ")
 			
 			print('Sahwit:')
-		if presentedItem.lower() == 'statue/the thinker':
+		if presentedItem.lower() == 'statue':
 			print('Phoenix:')
 			print("""Objection!""")
 			print(' ')
@@ -1801,7 +1801,7 @@ while crossExamination == 1:
 			dialogue(tBlue + "(Something's fishy here…) \u001b[38;5;220m >> ")
 			
 			print('Sahwit:')
-		if presentedItem.lower() == 'statue/the thinker':
+		if presentedItem.lower() == 'statue':
 			print('Phoenix:')
 			print("""Objection!""")
 			print(' ')
@@ -1831,7 +1831,7 @@ while crossExamination == 1:
 			dialogue("The witness says he saw the table clock. \u001b[38;5;220m >> ")
 			dialogue("End of story. \u001b[38;5;220m >> ")
 			
-		if presentedItem.lower() == 'statue/the thinker':
+		if presentedItem.lower() == 'statue':
 			print('Phoenix:')
 			print("""Objection!""")
 			print(' ')
@@ -2599,7 +2599,7 @@ crossExamination = 1
 while crossExamination == 1:
 	dialogue(tBlue + "(What the heck is she talking about?) \u001b[38;5;220m >> ")
 	presentEvidence()
-	if presentedItem.lower() == 'statue/the thinker':
+	if presentedItem.lower() == 'statue':
 		print('Phoenix:')
 		print("""Take that!""")
 		print(' ')
