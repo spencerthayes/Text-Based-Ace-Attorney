@@ -2081,7 +2081,7 @@ print('Judge:')
 dialogue("Mr. Wright! \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue("Your Honor?")
+dialogue("Your Honor? \u001b[38;5;220m >> ")
 
 print('Judge:')
 dialogue("You claim the sound the witness heard came from the clock… \u001b[38;5;220m >> ")
@@ -2208,7 +2208,7 @@ dialogue("So, Mr. Sahwit… \u001b[38;5;220m >> ")
 dialogue("Try to talk your way out of this one! \u001b[38;5;220m >> ")
 
 print('Sahwit:')
-dialogue("…")
+dialogue("… \u001b[38;5;220m >> ")
 dialogue("…Hah! \u001b[38;5;220m >> ")
 dialogue("Hah hah! \u001b[38;5;220m >> ")
 dialogue("You forgot one thing! \u001b[38;5;220m >> ")
