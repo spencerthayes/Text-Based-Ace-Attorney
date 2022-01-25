@@ -2092,6 +2092,8 @@ dialogue(tBlue + "(The whole case is riding on this!) \u001b[38;5;220m >> ")
 dialogue(tBlue + "(I'd better think it through carefully!) \u001b[38;5;220m >> ")
 dialogue("Yes, Your Honor. \u001b[38;5;220m >> ")
 
+questionAnswer = ' '
+currentQuestion = 1
 while currentQuestion != 0:
 	dialogue("The sound Mr. Sahwit heard was definitely this clock. A fact which is clear if you simply…  \u001b[38;5;220m >> ")
 	print("1: Examine the clock's batteries")
