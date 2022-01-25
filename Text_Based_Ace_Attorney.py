@@ -2541,7 +2541,7 @@ print('Mia:')
 dialogue("Oh, no, I couldn't. \u001b[38;5;220m >> ")
 
 print('Phoenix:')
-dialogue("(Hey, I was the one who got you off the hook!) \u001b[38;5;220m >> ")
+dialogue(tBlue + "(Hey, I was the one who got you off the hook!) \u001b[38;5;220m >> ")
 
 print('Butz:')
 dialogue("Oh, hey! \u001b[38;5;220m >> ")
